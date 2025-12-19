@@ -4,6 +4,10 @@ Code and models for the paper: "Cross-modal learning for plankton recognition"
 
 The project focuses on joint image-signal representation learning for plankton recognition using CLIP-style contrastive pre-training. 
 
+Pre-training           |  Inference
+:-------------------------:|:-------------------------:
+![pre-training ](results/figures/pretraining.png) | ![classification](results/figures/classification.png)
+
 The code was built using 
 ```
 Python 3.12.3
