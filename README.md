@@ -89,6 +89,6 @@ The benchmark:
 This saves the results to `results/benchmarks/` as `.pkl`.
 
 ### Analyzing results
-The results can be analyzed in the provided jupyter notebook `analyze_results.ipynb`.
+The results can be analyzed in the provided jupyter notebook `analyze_results.ipynb`. The notebook provides accuracies for all setups and also allows plotting the accuracy over the gallery set size.
 
-![](results/figures/example_results2.png)
+![](results/figures/example_results.png)
