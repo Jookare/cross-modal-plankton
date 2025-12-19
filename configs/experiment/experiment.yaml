@@ -1,0 +1,27 @@
+# Example experiment.yaml
+
+data:
+  train: LAB # or UTO
+  test: SEA # or SEA
+  image_size: 224
+
+models:
+  folder: multi
+  checkpoints: [
+    convnext_femto_cnn_clip_512_LAB,
+    convnext_femto_transformer_clip_512_LAB,
+  ]
+  folds: 5
+
+embedding:
+  batch_size: 512
+  num_workers: 8
+  save_path: ./results/embeddings/convnext_lab.pkl
+
+benchmark:
+  n_per_class: [16]
+  k_values: [3]
+  repeats: 5
+  min_samples: 0
+  seed: 0
+  save_path: ./results/benchmarks/convnext_lab.pkl

@@ -1,0 +1,43 @@
+precision: 'medium'
+dim_embedding: 512
+target_size: &target_size 224
+bs: 512
+valid_bs: 256
+buckets: 1
+num_workers: 8
+patience: 30
+
+image_encoder_args:
+  name: 'vit_tiny_patch16_224'
+  pretrained: true
+  in_chans: 1
+  dropout: 0.2
+  metadata: true
+
+profile_encoder_args:
+  dim_in: 6
+  blocks: [2, 2, 2, 2]
+  base_channels: 32
+  dropout: 0.2
+  metadata: true
+
+coordination_args:
+  method: 'clip'
+
+optim_args:
+  optim: 'sgd'
+  lr: 0.005
+  momentum: 0.9
+  weight_decay: 1.0e-3
+  warmup_epochs: 5
+  max_epochs: 100
+  nesterov: true
+
+trainer_args:
+  devices: [0]
+  precision: '16-mixed'
+  min_epochs: 30
+  max_epochs: 100
+  accumulate_grad_batches: 1
+  val_check_interval:
+  check_val_every_n_epoch: 1
