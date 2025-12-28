@@ -24,7 +24,32 @@ This puts the project to `PYTHONPATH` and fixes imports from `src`.
 
 ## Downloading the datasets
 
-The datasets can be downloaded from here `https://ida.fairdata.fi/s/NOT-FOR-PUBLICATION-HcirdqiwoMzb`. It includes LAB, SEA, and UTO datasets that were used in the publication. Move dataset folders to the `data` folder.
+The datasets can be downloaded from here `https://ida.fairdata.fi/s/NOT-FOR-PUBLICATION-HcirdqiwoMzb`. After downloading, move each dataset folder into the data/ directory so the structure looks like: 
+```
+data/
+├── LAB/
+├── SEA/
+└── UTO/
+```
+
+### Splitting the datasets
+The datasets splitting is handled by the `split_kfold.py` script. The script supports two different splitting modes, depending on your use case.
+
+1. K-fold splitting (When training and evaluating with same dataset)
+When k-fold splitting is enabled:
+- The dataset is divided into K folds
+- For each fold:
+  - 80% of the data is used for training
+  - 5% for validation
+  - 15% for testing
+- Each fold uses a different subset as the test set, allowing cross-validation across the entire dataset
+
+2. Single train/validation split (for self-supervised pretraining)
+The dataset is split once, without cross-validation
+- The split is:
+  - 95% for training
+  - 5% for validation
+This mode is intended for unlabeled datasets if one wants to track separate metrics during training for selecting the best model.
 
 ## Training models
 Model architectures and training settings are defined using model cards in `configs/train/[multi/dino]`
