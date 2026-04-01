@@ -24,7 +24,7 @@ This puts the project to `PYTHONPATH` and fixes imports from `src`.
 
 ## Downloading the datasets
 
-The datasets can be downloaded from here `https://ida.fairdata.fi/s/NOT-FOR-PUBLICATION-HcirdqiwoMzb`. After downloading, move each dataset folder into the data/ directory so the structure looks like: 
+The datasets can be downloaded from here [https://doi.org/10.23729/fd-470acabc-afb8-39cb-a86e-0f81872e7443](https://doi.org/10.23729/fd-470acabc-afb8-39cb-a86e-0f81872e7443). After downloading, move each dataset folder into the data/ directory so the structure looks like: 
 ```
 data/
 ├── LAB/
