@@ -16,11 +16,17 @@ CUDA 13.0
 ```
 
 # Usage
-To easily use these codes install the project in editable mode, by running from project root
+To install the exact environment used to produce the results shown in paper run:
+```
+pip install -r requirements-lock.txt
+pip install -e . --no-deps
+```
+or to install in editable mode with newer compatible versions of the packages:
 ```
 pip install -e .
 ```
-This puts the project to `PYTHONPATH` and fixes imports from `src`.
+
+The editable mode puts the project to `PYTHONPATH` and fixes imports from `src`.
 
 ## Downloading the datasets
 
@@ -35,21 +41,27 @@ data/
 ### Splitting the datasets
 The datasets splitting is handled by the `split_kfold.py` script. The script supports two different splitting modes, depending on your use case.
 
-1. K-fold splitting (When training and evaluating with same dataset)
-When k-fold splitting is enabled:
-- The dataset is divided into K folds
-- For each fold:
-  - 80% of the data is used for training
-  - 5% for validation
-  - 15% for testing
-- Each fold uses a different subset as the test set, allowing cross-validation across the entire dataset
+1. K-fold splitting (training and testing with same dataset)
+Divides the dataset is into `k` folds, and for each fold:
+- 80% of the data is used for training
+- 5% for validation
+- 15% for testing
 
-2. Single train/validation split (for self-supervised pretraining)
-The dataset is split once, without cross-validation
-- The split is:
-  - 95% for training
-  - 5% for validation
-This mode is intended for unlabeled datasets if one wants to track separate metrics during training for selecting the best model.
+Example command:  
+```
+python ./scripts/split_kfold.py --mode kfold --dataset data/LAB --k 5
+```
+
+2. Single train/validation split (training only)
+The dataset is split into:
+- 95% for training
+- 5% for validation
+This mode is intended for unlabeled datasets if one wants to track separate metrics during training or for selecting the best model.
+
+Example command:
+```
+python ./scripts/split_kfold.py --mode single --dataset ./data/UTO
+```
 
 ## Training models
 Model architectures and training settings are defined using model cards in `configs/train/[multi/dino]`
