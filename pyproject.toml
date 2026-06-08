@@ -15,7 +15,8 @@ dependencies = [
     "lightning>=2.5.1",
     "tensorboard>=2.18.0",
     "lightly>=1.5.17",
-    "notebook>=7.3.3"
+    "notebook>=7.3.3",
+    "matplotlib>=3.9.2"
 ]
 
 [tool.setuptools]

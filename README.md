@@ -16,7 +16,7 @@ CUDA 13.0
 ```
 
 # Usage
-To install the exact environment used to produce the results shown in paper run:
+To install the exact environment used to produce the results shown in paper, first create e.g., Python virtual environtment, activate it and then run:
 ```
 pip install -r requirements-lock.txt
 pip install -e . --no-deps

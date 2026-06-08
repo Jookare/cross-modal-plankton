@@ -1,27 +1,26 @@
 # Example experiment.yaml
 
 data:
-  train: LAB # or UTO
-  test: SEA # or SEA
+  train: UTO # or UTO
+  test: LAB # or SEA
   image_size: 224
 
 models:
   folder: multi
   checkpoints: [
-    convnext_femto_cnn_clip_512_LAB,
-    convnext_femto_transformer_clip_512_LAB,
+    efficientnet_b0_cnn_clip_512_UTO,
   ]
   folds: 5
 
 embedding:
   batch_size: 512
   num_workers: 8
-  save_path: ./results/embeddings/convnext_lab.pkl
+  save_path: ./results/embeddings/efficientnet_uto.pkl
 
 benchmark:
-  n_per_class: [16]
+  n_per_class: [1,2,4,8,16]
   k_values: [3]
   repeats: 5
   min_samples: 0
   seed: 0
-  save_path: ./results/benchmarks/convnext_lab.pkl
+  save_path: ./results/benchmarks/efficientnet_uto.pkl
