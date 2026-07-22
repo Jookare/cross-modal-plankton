@@ -133,3 +133,18 @@ This saves the results to `results/benchmarks/` as `.pkl`.
 The results can be analyzed in the provided jupyter notebook `analyze_results.ipynb`. The notebook provides accuracies for all setups and also allows plotting the accuracy over the gallery set size.
 
 ![](results/figures/example_results.png)
+
+## Reference
+Here is our BibTeX if you would like to cite our work:
+```
+@misc{kareinen2026crossmodallearningplanktonrecognition,
+      title={Cross-modal learning for plankton recognition}, 
+      author={Joona Kareinen and Veikka Immonen and Tuomas Eerola and Lumi Haraguchi and Lasse Lensu and Kaisa Kraft and Sanna Suikkanen and Heikki Kälviäinen},
+      year={2026},
+      eprint={2603.16427},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.16427}, 
+
+}
+```
